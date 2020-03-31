@@ -8,7 +8,7 @@ def game_start
     player_one_name = gets.chomp
     break unless player_one_name.empty?
 
-    puts 'Kindly enter a name here'
+    puts 'Kindly enter a name here for player one'
   end
 
   player_two_name = nil
@@ -16,6 +16,7 @@ def game_start
     print 'player two name:'
     player_two_name = gets.chomp
     break unless player_two_name.empty?
+    puts 'Kindly enter a name here for player two'
   end
 
   player_one = Player.new(player_one_name, '0')
