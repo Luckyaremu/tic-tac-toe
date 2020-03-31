@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-
+require_relative '../lib/game_logic.rb'
 def game_start
-  print = 'start game now'
+  puts 'time for tic-tac-toe game, lets have some fun'
   player_one_name = nil
   loop do
     print 'player one name:'
