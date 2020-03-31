@@ -8,7 +8,7 @@ def game_start
     player_one_name = gets.chomp
     break unless player_one_name.empty?
 
-    puts 'enter atleast a character'
+    puts 'Kindly enter a name here'
   end
 
   player_two_name = nil
