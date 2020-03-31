@@ -10,7 +10,7 @@ def game
 puts "Welcome to tic-tac-toe, you are player one using X. choose first placement.
 your options are 1,2,3,4,5,6,7,8,9"
 
-[1,2,3,4,5,6,7,8,9] = gets.chomp
+[1,2,3,4,5,6,7,8,9] == gets.chomp
 
 #player chooses number which get pushed into an array to see if it is meeting winning conditions
 
@@ -20,13 +20,14 @@ your options are 1,2,3,4,5,6,7,8,9"
 
 puts "player one has chosen 1, computer chooses 2.please choose from remaining options 3,4,5,6,7,8,9"
 
-[3,4,5,6,7,8,9]= gets.chomp
+[3,4,5,6,7,8,9]== gets.chomp
 
 # after each turn computer and human match method is run to see if output numbers are a match, if so
 
 puts "congratulations, you are the winner! play again YES:NO"
 
-YES = gets.chomp , NO = gets.chomp
+YES == gets.chomp 
+NO == gets.chomp
 
 if YES run game 
 else puts "Thank-you for playing"
@@ -44,4 +45,3 @@ puts "Its a Draw +_+ play again YES:NO"
 
 if YES run game 
 else puts "Thank-you for playing"
-
