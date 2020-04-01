@@ -3,14 +3,20 @@ require_relative '../lib/game_logic.rb'
 
 winningcondtionshuman = [1, 2, 3] || [4, 5, 6] || [7, 8, 9] || [1, 4, 7] ||
                         [2, 5, 8] || [3, 6, 9] || [1, 5, 9] || [3, 5, 7]
-outputhuman = []
-outputcomputer = []
+outputplayerone = []
+outputplayertwo = []
 field = ['',
          'a1', 'a2', 'a3',
          'b4', 'b5', 'b6',
          'c7', 'c8', 'c9']
 
 # Player one against Player two in a game of tic-tac-toe, human always goes first
+
+# we will use a while loop, it will be implemented until 9 outputs
+# total have gone into outputplayerone & outputplayertwo
+# or the loop will end if winning conditions are met
+
+# Inside the loop, all actions will be repeated for each move
 
 puts "Welcome to tic-tac-toe, you are player one using X. choose first placement.
 your options are a1,a2,a3,b4,b5,b6,c7,c8,c9"
@@ -34,7 +40,7 @@ puts 'player one has chosen a1, player two please choose from remaining options 
 
 a3, b4, b5, b6, c7, c8, c9 = gets.chomp
 
-# after each turn computer and human match method is run to see if output numbers are a match, if so
+# after each turn the match method is run to see if output numbers are a match to the winning array, if so
 
 puts 'congratulations, you are the winner! play again YES:NO'
 
