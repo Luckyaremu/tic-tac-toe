@@ -11,36 +11,6 @@ class Game
               '7', '8', '9']
   end
 
-  def game_won(player, player_history_sorted)
-    if check_win(player, player_history_sorted)
-
-      display
-      puts "Congratulations, #{player.name}! It's a win!"
-      game_over
-    elsif @turn_count >= 9
-      display
-      puts "It's a tie.Try again?"
-      game_over
-
-    end
-    turn
-  end
-
-  def game_over
-    print 'Play again? (Y/N): '
-    input = gets.chomp.to_s.downcase
-
-    if input == 'y'
-      start_game
-    elsif input == 'n'
-      puts 'Thanks for trying!'
-      exit
-    else
-      puts "select 'Y or  'N'."
-      game_over
-    end
-  end
-
   def check_win(_player, player_history_sorted, won = false)
     @win_array.each do |r1|
       counter = 0
