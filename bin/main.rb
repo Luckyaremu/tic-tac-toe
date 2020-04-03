@@ -1,72 +1,63 @@
-# !/usr/bin/env ruby
+#!/usr/bin/env ruby
 require_relative '../lib/game_logic.rb'
+def start_game
+  puts 'Lets have some fun with tic tac toe game'
+  player_one_name = nil
+  loop do
+    print 'Player one, kindly enter your name: '
+    player_one_name = gets.chomp
+    break unless player_one_name.empty?
 
-winningcondtionshuman = [1, 2, 3] || [4, 5, 6] || [7, 8, 9] || [1, 4, 7] ||
-                        [2, 5, 8] || [3, 6, 9] || [1, 5, 9] || [3, 5, 7]
-outputplayerone = []
-outputplayertwo = []
-field = ['',
-         'a1', 'a2', 'a3',
-         'b4', 'b5', 'b6',
-         'c7', 'c8', 'c9']
+    puts 'Please enter your name here as player one'
+  end
 
-# Player one against Player two in a game of tic-tac-toe, human always goes first
+  player_two_name = nil
+  loop do
+    print 'Player two, kindly enter your name: '
+    player_two_name = gets.chomp
+    break unless player_two_name.empty?
 
-# we will use a while loop, it will be implemented until 9 outputs
-# total have gone into outputplayerone & outputplayertwo
-# or the loop will end if winning conditions are met
+    puts 'Please enter your name here as player two'
+  end
 
-# Inside the loop, all actions will be repeated for each move
+  player_one = Player.new(player_one_name, 'X')
+  player_two = Player.new(player_two_name, 'O')
+  game = Game.new(player_one, player_two)
 
-puts "Welcome to tic-tac-toe, you are player one using X. choose first placement.
-your options are a1,a2,a3,b4,b5,b6,c7,c8,c9"
-
-a1, a2, a3, b4, b5, b6, c7, c8, c9 = gets.chomp
-
-# player chooses number which get pushed into an array to see if it is meeting winning conditions
-
-# number that is chosen is removed from the field options list and they are asked to choose from the remaining numbers
-
-# if player one writes invalid choice, console puts "invalid move"
-
-# payer two, will select a number from the remaining field options array.this number will be removed from options
-# array and added to its own output array.
-
-# if player two writes invalid choice, console puts "invalid move"
-
-# after each players turn the field is displayed with X or O replacing the square they have chosen
-
-puts 'player one has chosen a1, player two please choose from remaining options a2,a3,b4,b5,b6,c7,c8,c9'
-
-a3, b4, b5, b6, c7, c8, c9 = gets.chomp
-
-# after each turn the match method is run to see if output numbers are a match to the winning array, if so
-
-puts 'congratulations, you are the winner! play again YES:NO'
-
-YES, = gets.chomp
-NO, = gets.chomp
-
-if YES run game
-else puts 'Thank-you for playing'
+  game.turn
 end
 
-# if player two output matches winning conditions
-
-puts 'Sorry you lost :( play again YES:NO'
-
-YES, = gets.chomp
-NO, = gets.chomp
-
-if YES run game
-else puts 'Thank-you for playing'
+def display
+  @field.each_index do |i|
+    if (i % 3).zero?
+      p @field[(i - 2)..i] unless i.zero?
+    end
+  end
 end
 
-# once five output numbers are in the player one array and  four output
-# numbers in player two array, if winning conditions have not been met
-
-puts 'Its a Draw +_+ play again YES:NO'
-
-if YES run game
-else puts 'Thank-you for playing'
+def good_move?(_player, move)
+  if @field[move] != 'X' && @field[move] != 'O' && (1..9).include?(move)
+    true
+  else
+    false
+  end
 end
+
+def get_move(player)
+  display
+
+  print "(#{player.marker}) Enter any of the moves, #{player.name}: "
+  move = gets.chomp.to_i
+  player.moves_history << move
+  player_history_sorted = player.moves_history.sort.join
+
+  if good_move?(player, move)
+    @field[move] = player.marker
+  else
+    p 'Move is Invalid'
+    get_move(player)
+  end
+  game_won(player, player_history_sorted)
+end
+
+start_game
