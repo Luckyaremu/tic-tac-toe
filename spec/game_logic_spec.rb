@@ -23,7 +23,7 @@ RSpec.describe Game do
   describe '#check_win' do
     let(:player_history) { %w[4 5 6] }
     let(:player_history1) { [4, 5, 6] }
-    let(:player1) { 'Keli' }
+    let(:player1) { 'lucky' }
 
     it 'it checks and displays true if player history is in Win array' do
       expect(subject.check_win(player1, player_history)).to eq(true)
