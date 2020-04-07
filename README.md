@@ -52,6 +52,7 @@ follow the instructions as they appear in the terminal and enjoy!
 
 - Github: [@luckyaremu](https://github.com/Luckyaremu )
 - Twitter: [@luckyaremu](https://twitter.com/luckyaremu)
+- Linkedin: [@luckyaremu](https://www.linkedin.com/in/lucky-aremu-24807a145/)
 
 👤 **Kotoku Kennedy**
 

@@ -11,6 +11,14 @@ class Game
               '7', '8', '9']
   end
 
+  def good_move?(_player, move)
+    if @field[move] != 'X' && @field[move] != 'O' && (1..9).include?(move)
+      true
+    else
+      false
+    end
+  end
+
   def check_win(_player, player_history_sorted, won = false)
     @win_array.each do |r1|
       counter = 0

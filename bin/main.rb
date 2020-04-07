@@ -35,14 +35,6 @@ def display
   end
 end
 
-def good_move?(_player, move)
-  if @field[move] != 'X' && @field[move] != 'O' && (1..9).include?(move)
-    true
-  else
-    false
-  end
-end
-
 def get_move(player)
   display
 
